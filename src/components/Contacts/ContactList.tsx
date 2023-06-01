@@ -30,7 +30,7 @@ export default function ContactList(props: {
 
           <div className="m-2">
             <span
-              className={`text-white px-3 py-1 rounded-md ${
+              className={`text-white px-3 py-1 rounded-md cursor-default ${
                 props.status === true
                   ? 'bg-green-600 hover:bg-green-700'
                   : 'bg-red-600 hover:bg-red-700'
