@@ -40,13 +40,20 @@ export default function ContactsPage() {
         </div>
       ) : (
         <div className="flex justify-center items-center">
-          <div className="bg-white p-8 rounded shadow-lg">
-            <h1 className="text-4xl font-bold text-center text-red-500 mb-4">
-              No Contacts Found!
-            </h1>
-            <p className="text-lg text-center text-gray-600">
-              Please add contact from Create Contact Button
-            </p>
+          <div className="bg-white p-8 rounded shadow-lg flex justify-between">
+            <span className="text-5xl bg-red-500 rounded-full sm:w-16 sm:h-16 w-20 h-14 flex items-center justify-center text-white mr-4">
+              <i className="fa-solid fa-xmark"></i>
+            </span>
+            <div>
+              <div className="flex items-center mb-4">
+                <h1 className="text-4xl font-bold text-center text-red-500">
+                  No Contacts Found!
+                </h1>
+              </div>
+              <p className="text-lg text-center text-gray-600">
+                Please add contact from Create Contact Button
+              </p>
+            </div>
           </div>
         </div>
       )}
