@@ -1,3 +1,22 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+.leaflet-container {
+  width: 288px;
+  min-height: 288px;
+  z-index: 0;
+}
+
+@media screen and (min-width: 640px) {
+  .leaflet-container {
+    width: 400px;
+    height: 400px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .leaflet-container {
+    width: 560px;
+    height: 560px;
+  }
+}
