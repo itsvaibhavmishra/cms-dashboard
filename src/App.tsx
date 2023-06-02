@@ -5,8 +5,10 @@ import CreateContact from './components/Contacts/CreateContact';
 import ModifyContact from './components/Contacts/ModifyContact';
 import ChartsMapsPage from './pages/ChartsMapsPage';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import ErrorPage from './pages/ErrorPage';
 
 function App() {
+  // Sidebar
   const queryClient = new QueryClient();
   const [isSubMenuHidden, setSubMenuHidden] = useState(false);
   const [isSidebarHidden, setSidebarHidden] = useState(false);
@@ -39,6 +41,7 @@ function App() {
 
   return (
     <QueryClientProvider client={queryClient}>
+      {/* Start of Sidebar */}
       <div className="bg-white-600">
         <span
           className="absolute text-white text-4xl top-1 left-1 cursor-pointer"
@@ -149,6 +152,7 @@ function App() {
               </div>
             </div>
           )}
+          {/* End of Sidebar */}
           <div
             className={` flex-1 p-4 ${
               isSidebarHidden ? '' : 'ml-[300px]'
@@ -157,6 +161,7 @@ function App() {
             {/* Content goes here */}
             <div className="grid place-items-center">
               <Routes>
+                {/* Welcome Page */}
                 <Route
                   path="/"
                   element={
@@ -218,6 +223,16 @@ function App() {
                   element={
                     <>
                       <ChartsMapsPage />
+                    </>
+                  }
+                />
+
+                {/* Error Route */}
+                <Route
+                  path="/*"
+                  element={
+                    <>
+                      <ErrorPage />
                     </>
                   }
                 />
