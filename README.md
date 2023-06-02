@@ -15,6 +15,7 @@ Live At: <a href="https://cmsdashboard.netlify.app/">Netlify</a>
 ![Router](https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white)
 ![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
 ![Leaflet](https://img.shields.io/static/v1?style=for-the-badge&message=Leaflet&color=199900&logo=Leaflet&logoColor=FFFFFF&label=)
+![TailwindCSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
 
 ## 📃 Features List
 
@@ -27,7 +28,7 @@ Live At: <a href="https://cmsdashboard.netlify.app/">Netlify</a>
     - Modify or Delete Contact
     - Charts and Maps from API using Leaflet
 
-## Installation
+## 👾 Installation
 
 ### Move to the root directory using command
 
