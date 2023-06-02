@@ -9,29 +9,23 @@ export function MapComponent() {
     queryFn: getCountriesData,
   });
 
+  if (isError) {
+    return (
+      <span className="font-bold text-red-700">Error Fetching Map Data</span>
+    );
+  }
+
   const position: LatLngExpression = [51.505, -0.09];
 
   if (isLoading) {
     return (
-      <span className="font-bold text-green-600">Loading Countries Map</span>
-    );
-  }
-
-  if (isError) {
-    return (
-      <span className="font-bold text-red-700">
-        Error Fetching Countries Data
-      </span>
+      <span className="font-bold text-green-600">Loading Map Component</span>
     );
   }
 
   return (
     <div className="map leaflet-container mb-8 sm:mb-0">
       <MapContainer center={position} zoom={2} scrollWheelZoom={false}>
-        <TileLayer
-          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-        />
         {data.map((item: any) => {
           return (
             <Marker
@@ -56,6 +50,10 @@ export function MapComponent() {
             </Marker>
           );
         })}
+        <TileLayer
+          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+        />
       </MapContainer>
     </div>
   );

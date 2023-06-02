@@ -1,5 +1,5 @@
-import LineGraph from '../components/ChartsMaps/LineGraph';
 import { MapComponent } from '../components/ChartsMaps/MapComponent';
+import LineGraph from '../components/ChartsMaps/LineGraph';
 
 export default function Charts() {
   return (

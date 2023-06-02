@@ -1,3 +1,5 @@
+import { useQuery } from '@tanstack/react-query';
+import { getFluctuationData } from './APIs.js';
 import {
   ResponsiveContainer,
   LineChart,
@@ -8,28 +10,20 @@ import {
   Tooltip,
   Label,
 } from 'recharts';
-import { getFluctuationData } from './APIs.js';
-
-import { useQuery } from '@tanstack/react-query';
 
 export default function LineGraph() {
-  // Time-series fluctuation data
   const { isLoading, isError, data } = useQuery({
     queryKey: ['fluctuation'],
     queryFn: getFluctuationData,
   });
 
   if (isLoading) {
-    return (
-      <span className="font-bold text-green-600">Loading Fluctuation Plot</span>
-    );
+    return <span className="font-bold text-green-600">Loading Line Graph</span>;
   }
 
   if (isError) {
     return (
-      <span className="font-bold text-red-700">
-        Error Fetching Fluctuation Data
-      </span>
+      <span className="font-bold text-red-700">Error Fetching Graph Data</span>
     );
   }
 
@@ -37,18 +31,16 @@ export default function LineGraph() {
     <div className="line-plot w-full sm:w-1/2 lg:w-[560px]">
       <ResponsiveContainer aspect={4 / 3} width="100%">
         <LineChart
-          data={Object.keys(data.cases).map((item) => {
-            return {
-              date: item,
-              num: data.cases[item] / 1_000_000 /* Normalize Y-Axis */,
-            };
-          })}
           margin={{ top: 5, bottom: 5, right: 5, left: 10 }}
+          data={Object.keys(data.cases).map((item) => ({
+            date: item,
+            num: data.cases[item] / 1_000_000, // Normalize Y-Axis
+          }))}
         >
           <Line type="monotone" dataKey="num" stroke="cyan" />
           <CartesianGrid stroke="#ccc" strokeDasharray="1 1" />
           <XAxis dataKey="date">
-            <Label value="Date" offset={-5} position="insideBottom"></Label>
+            <Label value="Date" offset={-5} position="insideBottom" />
           </XAxis>
           <YAxis dataKey="num">
             <Label
@@ -57,7 +49,7 @@ export default function LineGraph() {
               position="insideLeft"
               angle={-90}
               textAnchor="middle"
-            ></Label>
+            />
           </YAxis>
           <Tooltip />
         </LineChart>

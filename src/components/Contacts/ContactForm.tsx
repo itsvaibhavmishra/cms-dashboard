@@ -22,15 +22,20 @@ export default function ContactForm({
   const [lastName, setLastName] = useState<string>(lName);
   const [status, setStatus] = useState<boolean>(stat);
 
+  const handleSubmit = (e: FormEvent) => {
+    e.preventDefault();
+    handleClick(e, firstName, lastName, status);
+  };
+
   return (
     <form
-      onSubmit={(e) => handleClick(e, firstName, lastName, status)}
-      className="sm:w-96 mx-auto border-2 p-6 border-gray-200 rounded-lg shadow-lg hover:shadow-2xl transform transition-all hover:-translate-y-2"
+      onSubmit={handleSubmit}
+      className="mx-auto w-96 p-6 border-2 rounded-lg shadow-lg hover:shadow-2xl transition-all transform hover:-translate-y-2 border-gray-200"
     >
       <div className="mb-6">
         <label
           htmlFor="firstName"
-          className="block text-gray-700 font-bold mb-2"
+          className="mb-2 block font-bold text-gray-700"
         >
           First Name:
         </label>
@@ -40,13 +45,13 @@ export default function ContactForm({
           value={firstName}
           onChange={(e) => setFirstName(e.target.value)}
           required
-          className="appearance-none border rounded-md w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:border-cyan-500"
+          className="w-full px-3 py-2 leading-tight text-gray-700 border rounded-md appearance-none focus:outline-none focus:border-cyan-500"
         />
       </div>
       <div className="mb-6">
         <label
           htmlFor="lastName"
-          className="block text-gray-700 font-bold mb-2"
+          className="mb-2 block font-bold text-gray-700"
         >
           Last Name:
         </label>
@@ -56,11 +61,11 @@ export default function ContactForm({
           value={lastName}
           onChange={(e) => setLastName(e.target.value)}
           required
-          className="appearance-none border rounded-md w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:border-cyan-500"
+          className="w-full px-3 py-2 leading-tight text-gray-700 border rounded-md appearance-none focus:outline-none focus:border-cyan-500"
         />
       </div>
       <div className="mb-6 flex flex-col sm:flex-row justify-between">
-        <span className="block text-gray-700 font-bold mb-2 sm:mb-0">
+        <span className="mb-2 block font-bold text-gray-700 sm:mb-0">
           Status:
         </span>
         <div className="flex flex-col sm:flex-row">
@@ -92,7 +97,7 @@ export default function ContactForm({
       </div>
       <button
         type="submit"
-        className="block mx-auto bg-blue-500 hover:bg-blue-600 text-white py-3 px-6 rounded-full text-lg font-semibold"
+        className="block mx-auto py-3 px-6 text-lg font-semibold text-white bg-blue-500 rounded-full hover:bg-blue-600"
       >
         Submit Contact
       </button>
