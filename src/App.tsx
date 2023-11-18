@@ -168,11 +168,8 @@ function App() {
                     <div className="flex justify-center items-center min-h-screen">
                       <div className="bg-white p-8 rounded shadow-lg">
                         <h1 className="text-4xl font-bold text-center text-gray-800 mb-4">
-                          Assignmet By
-                          <img
-                            src="https://taiyo.ai/wp-content/uploads/Taiyo-logo.png"
-                            alt="TaiyoLogo"
-                          />
+                          Developed By
+                          <p className="text-9xl font-bold text-center text-center text-red-400 mb-2">Vaibhaw Mishra</p>
                         </h1>
                         <p className="text-lg text-center text-gray-600">
                           Thank you for visiting! Feel free to explore.
